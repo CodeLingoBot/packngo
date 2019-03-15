@@ -48,7 +48,7 @@ type UserServiceOp struct {
 	client *Client
 }
 
-// Get method gets a user by userID
+// List gets method gets a user by userID
 func (s *UserServiceOp) List(listOpt *ListOptions) (users []User, resp *Response, err error) {
 	params := createListOptionsURL(listOpt)
 	path := fmt.Sprintf("%s?%s", usersBasePath, params)
@@ -74,7 +74,7 @@ func (s *UserServiceOp) List(listOpt *ListOptions) (users []User, resp *Response
 	}
 }
 
-// Returns the user object for the currently logged-in user.
+// Current returns the user object for the currently logged-in user.
 func (s *UserServiceOp) Current() (*User, *Response, error) {
 	user := new(User)
 
